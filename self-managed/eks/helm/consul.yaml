@@ -29,6 +29,11 @@ server:
     limits:
       memory: "1461Mi"
       cpu: "1000m"
+  extraConfig: |
+    {
+      "leave_on_terminate": false
+    }
+
 
 # Contains values that configure the Consul UI.
 ui:
