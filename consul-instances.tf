@@ -135,7 +135,6 @@ resource "aws_instance" "consul-server-group" {
       hostname = "consul-server${count.index}",
       consul_ca = base64encode(tls_self_signed_cert.consul_ca_cert.cert_pem),
       consul_config = base64encode(templatefile("${path.module}/provisioning/templates/consul-server.json", {
-        zone = "zone0",
         datacenter = var.datacenter,
         token = random_uuid.consul_bootstrap_token.result,
         retry_join = "provider=aws tag_key=learn-consul-dr tag_value=join",

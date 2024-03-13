@@ -11,13 +11,6 @@
     },
     "datacenter": "${datacenter}",
     "retry_join": ["${retry_join}"],
-    "node_meta": {
-        "zone": "${zone}"
-    },
-    "autopilot": {
-        "redundancy_zone_tag": "zone"
-    },
-    "license_path": "/etc/consul.d/consul.hclic",
     "encrypt": "",
     "encrypt_verify_incoming": false,
     "encrypt_verify_outgoing": false,
