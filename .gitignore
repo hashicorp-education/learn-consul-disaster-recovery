@@ -28,3 +28,4 @@
 **/*.pem
 **/consul.hclic
 **/peers.json
+**/consul[01]_backup.zip

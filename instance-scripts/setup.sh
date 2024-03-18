@@ -8,7 +8,7 @@ setup_deps() {
   apt update -qy
   version="${consul_version}"
   consul_package="consul="$${version:1}"*"
-  apt install -qy apt-transport-https gnupg2 curl lsb-release $${consul_package} unzip jq tree apache2-utils nginx awscli
+  apt install -qy apt-transport-https gnupg2 curl lsb-release $${consul_package} unzip zip jq tree apache2-utils nginx awscli
 }
 
 setup_networking() {
@@ -28,6 +28,7 @@ setup_consul() {
   jq '.bind_addr = "{{ GetPrivateInterfaces | include \"network\" \"'${vpc_cidr}'\" | attr \"address\" }}"' client.temp.1 >/etc/consul.d/client.json
   rm /home/ubuntu/client.temp.*
   sed -i 's/notify/simple/g' /usr/lib/systemd/system/consul.service
+  sed -i 's/Restart=on-failure/Restart=no/g' /usr/lib/systemd/system/consul.service
   systemctl daemon-reload
   systemctl enable consul.service
   systemctl start consul.service
