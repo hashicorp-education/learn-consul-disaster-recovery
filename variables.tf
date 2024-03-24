@@ -18,6 +18,6 @@ variable "aws_region" {
 
 variable "consul_version" {
   type        = string
-  description = "The HCP Consul version"
-  default     = "v1.17.3"
+  description = "Consul version"
+  default     = "v1.18.0"
 }
