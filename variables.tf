@@ -19,5 +19,5 @@ variable "aws_region" {
 variable "consul_version" {
   type        = string
   description = "Consul version"
-  default     = "v1.18.0"
+  default     = "v1.18.1"
 }
